@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Academic Planner</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+
+<nav class="navbar">
+
+<h2 class="logo">IJS</h2>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="projects.html">Projects</a></li>
+
+<li><a href="planner.html" class="active">Planner</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="planner">
+
+<h1>Academic Planner</h1>
+
+<p>Organize your daily academic activities and never miss a task.</p>
+
+<div class="planner-box">
+
+<input
+type="text"
+id="taskInput"
+placeholder="Enter a new task...">
+
+<button onclick="addTask()">
+    Add Task
+</button>
+
+<ul id="taskList"></ul>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 Ikenna Joshua Salvation |
+Computer Science (100 Level)
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
