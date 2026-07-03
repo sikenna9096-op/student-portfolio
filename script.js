@@ -8,15 +8,57 @@ window.addEventListener("load", function () {
 });
 
 // ==============================
+// MOBILE MENU
+// ==============================
+
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuBtn && navLinks) {
+
+    menuBtn.addEventListener("click", function () {
+
+        navLinks.classList.toggle("active");
+
+        const icon = menuBtn.querySelector("i");
+
+        if (icon.classList.contains("fa-bars")) {
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-times");
+        } else {
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+        }
+
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("active");
+
+            const icon = menuBtn.querySelector("i");
+
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+
+        });
+
+    });
+
+}
+
+// ==============================
 // SMOOTH SCROLLING
 // ==============================
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
     anchor.addEventListener("click", function (e) {
 
         const targetId = this.getAttribute("href");
 
-        // Skip links to other pages
         if (targetId.length <= 1) return;
 
         e.preventDefault();
@@ -24,12 +66,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(targetId);
 
         if (target) {
+
             target.scrollIntoView({
                 behavior: "smooth"
             });
+
         }
 
     });
+
 });
 
 // ==============================
@@ -53,8 +98,10 @@ if (sections.length > 0) {
     });
 
     sections.forEach(section => {
+
         section.classList.add("hidden");
         observer.observe(section);
+
     });
 
 }
@@ -66,7 +113,9 @@ if (sections.length > 0) {
 const footerYear = document.querySelector(".year");
 
 if (footerYear) {
+
     footerYear.textContent = new Date().getFullYear();
+
 }
 
 // ==============================
@@ -76,11 +125,15 @@ if (footerYear) {
 document.querySelectorAll(".btn").forEach(btn => {
 
     btn.addEventListener("mouseenter", function () {
+
         this.style.transform = "scale(1.05)";
+
     });
 
     btn.addEventListener("mouseleave", function () {
+
         this.style.transform = "scale(1)";
+
     });
 
 });
@@ -95,7 +148,9 @@ const taskList = document.getElementById("taskList");
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 if (taskList) {
+
     displayTasks();
+
 }
 
 function addTask() {
@@ -105,13 +160,17 @@ function addTask() {
     const text = taskInput.value.trim();
 
     if (text === "") {
+
         alert("Please enter a task.");
         return;
+
     }
 
     tasks.push({
+
         text: text,
         completed: false
+
     });
 
     saveTasks();
@@ -119,6 +178,7 @@ function addTask() {
     taskInput.value = "";
 
     displayTasks();
+
 }
 
 function displayTasks() {
@@ -132,7 +192,9 @@ function displayTasks() {
         const li = document.createElement("li");
 
         if (task.completed) {
+
             li.classList.add("completed");
+
         }
 
         li.innerHTML = `
